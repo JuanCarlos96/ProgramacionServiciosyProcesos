@@ -1,0 +1,10 @@
+Crear una clase obrera de nombre ObreraEj2, que extienda la clase Thread. Dicha clase será utilizada para
+calcular un número determinado de números primos a partir de un cierto valor de partida. Ambos datos se le
+pasarán a la clase en el constructor y quedarán guardados en sendos atributos. La clase deberá calcular la
+suma de dichos números primos y almacenarla en otro atributo. Implementar el método getResultado para obtener
+el resultado de la suma en cuestión.
+Finalmente, crear otra clase de nombre UsaObreraEj2 que, en su método main, pida dos números por teclado. El primero
+representará la cantidad de números primos que hay que calcular y el segundo el punto de partida de dicha búsqueda.
+Crear un objeto de la clase ObreraEj2 que se encargará de calcular la suma de esos primos. El programa principal,
+mientras tanto se encargará de calcular y mostrar la misma cantidad de múltiplos de 5 a partir del segundo valor
+introducido por teclado. Cuando termine hará una espera activa hasta que ObreraEj2 concluya.
