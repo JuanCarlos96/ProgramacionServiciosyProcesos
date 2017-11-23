@@ -1,0 +1,15 @@
+Crear una clase obrera de nombre ObreraEj4, que extienda la clase Thread. Dicha clase será utilizada
+para simular un número indeterminado de lanzamientos de dos dados. La clase deberá calcular cuantas veces
+han sumado entre los dos dados 10, la suma total de todos los lanzamientos y el número de veces consecutivas
+que ha salido el doble seis. Esos tres resultados deben quedar almacenados en otros tantos atributos de la clase.
+Implementar los métodos get necesarios para obtener esos resultados.
+Posteriormente, crear otra clase de nombre UsaObreraEj4 que, en su método main, creará y lanzará un objeto de la clase ObreraEj2.
+A continuación, mostrará un menú con las siguientes opciones: 1. Calcular media 2. Calcular Máximo 3. Calcular Minimo 4. Finalizar Obrera.
+Si se selecciona la opción 1, se pedirán por teclado tres valores (uno para determinar de cuantos números se desea obtener la media y los
+otros dos para generar los números aleatorios entre dicho rango a los que se calculará esa media), se mostrará la media calculada y se volverá
+a mostrar el menú. Si se selecciona la opción 2, se pedirán por teclado tres valores (uno para determinar de cuantos números se desea calcular
+máximo y los otros dos para generar los números aleatorios entre dicho rango a los que se calculará ese máximo), se mostrará el máximo obtenido
+y se volverá a mostrar el menú. Si se selecciona la opción 3, se pedirán por teclado tres valores (uno para determinar de cuantos números se desea
+el mínimo y los otros dos para generar los números aleatorios entre dicho rango a los que se calculará ese mínimo), se mostrará el mínimo obtenido
+y se volverá a mostrar el menú. Si se selecciona la opción 4, se finalizará la ejecución de la clase ObreraEj2 (usar interrupt() para ello), se
+mostrará su resultado y ahí terminará el main.

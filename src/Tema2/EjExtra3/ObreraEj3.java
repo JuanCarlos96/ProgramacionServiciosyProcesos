@@ -1,9 +1,9 @@
-package Tema2.EjExtra2;
+package Tema2.EjExtra3;
 
-public class ObreraEj2 extends Thread{
+public class ObreraEj3 extends Thread{
     private int suma, inicio, cantidad;
 
-    public ObreraEj2(int cantidad, int inicio) {
+    public ObreraEj3(int cantidad, int inicio) {
         this.cantidad = cantidad;
         this.inicio = inicio;
     }
