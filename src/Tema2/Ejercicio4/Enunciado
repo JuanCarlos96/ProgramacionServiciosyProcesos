@@ -1,0 +1,8 @@
+Define en la clase HiloContador un constructor que reciba el valor inicial del
+contador a partir del cual empezará a contar; y el método getContador() que devuelva
+el valor actual del contador. El applet debe crear e iniciar 2 hilos de esta clase,
+cada uno debe empezar con un valor entre 1 y 10 generado aleatoriamente. Mostrará 2
+botones, uno para detener el primer hilo y el otro para detener el segundo hilo. Para
+detener los hilos usar el método stop(): hilo.stop() (veremos más adelante que éste
+método está en desuso y no se debe usar). Cambia el texto de los botones cuando se pulsen,
+que muestre Finalizado Hilo 1 o 2 dependiendo del botón pulsado.
