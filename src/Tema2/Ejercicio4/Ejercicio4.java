@@ -6,7 +6,7 @@ import java.util.*;
 import java.awt.event.*;
 
 public class Ejercicio4 extends Applet implements ActionListener{
-    class HiloContador extends Thread{
+    private class HiloContador extends Thread{
         private int contador;
         private boolean parado;
 

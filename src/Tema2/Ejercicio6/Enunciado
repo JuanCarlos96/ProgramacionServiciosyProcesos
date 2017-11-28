@@ -1,0 +1,4 @@
+Crea un applet que tenga el aspecto que se muestra. En él se van a definir 3 hilos contador. Cada hilo tendrá 3 botones.
+El botón para finalizar el hilo, el botón con la etiqueta ++ que hace que el hilo tenga prioridad máxima y el de la
+etiqueta – que hace que el hilo tenga prioridad mínima. Todos los hilos parten con la prioridad NORM_PRIORITY. El botón
+Finalizar TODOS finaliza todos los hilos. Haz que a la derecha del contador se muestre la prioridad del hilo.

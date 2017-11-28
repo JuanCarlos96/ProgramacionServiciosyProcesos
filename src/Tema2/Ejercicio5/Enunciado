@@ -1,7 +1,0 @@
-Realiza un applet en el que una letra se mueva horizontalmente por la pantalla y rebote.
-La letra debe empezar en las posiciones x = 1 e y = 100 y se moverá de izquierda a derecha
-avanzando la x. Cuando la x sea mayor que el ancho del applet (getSize().width), hay que hacer que
-rebote y se mueva de derecha a izquierda. Habrá que comprobar si la letra llega a la posición
-1 para hacerla rebotar de nuevo y que se mueva de izquierda a derecha. El botón Finalizar Hilo,
-detiene el movimiento de la letra y muestra Reanudar Hilo, al pulsarlo de nuevo la letra continúa
-su movimiento y el botón muestra el texto Finalizar  Hilo.
