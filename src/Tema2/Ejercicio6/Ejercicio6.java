@@ -86,7 +86,7 @@ public class Ejercicio6 extends Applet implements ActionListener{
     }
 
     public void paint(Graphics g){
-        g.clearRect(0,0,550,400);
+        g.clearRect(0,0,1000,1000);
         g.setFont(fuente);
         g.drawString("Hilo 1: "+Integer.toString(h1.getContador()),300,100);
         g.drawString("Prioridad: "+Integer.toString(h1.getPriority()),520,100);
