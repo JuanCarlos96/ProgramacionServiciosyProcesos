@@ -1,0 +1,3 @@
+Modificar el applet del ejercicio 4 para que la finalización de los hilos no se realice con el método stop()
+sino que se realice de alguna de las formas seguras vistas anteriormente (usando interrupciones o usando una
+variable para controlar el fin del hilo).
