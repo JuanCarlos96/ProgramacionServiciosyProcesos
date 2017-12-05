@@ -20,13 +20,13 @@ public class Ejercicio7 extends Applet implements ActionListener{
 
         @Override
         public void run(){
-            while(!isInterrupted()){
-                repaint();
-                this.contador++;
-                try{
+            try{
+                while(!isInterrupted()){
+                    repaint();
+                    this.contador++;
                     this.sleep(500);
-                }catch(InterruptedException ie){}
-            }
+                }
+            }catch(InterruptedException e){}
         }
 
         public int getContador(){

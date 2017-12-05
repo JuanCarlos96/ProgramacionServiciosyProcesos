@@ -10,17 +10,14 @@ import java.awt.event.ActionListener;
 
 public class Ejercicio8 extends Applet implements ActionListener{
     private class HiloPrimos extends Thread{
-        private int contador;
+        private int contador = 0,esPrimo = 2;
         
         public HiloPrimos(){};
 
         @Override
         public void run() {
-            while(!isInterrupted()){
-                contador = 0;
-                int esPrimo = 2;
-
-                while(true){
+            try{
+                while(!isInterrupted()){
                     boolean primo = true;
                     for (int j=2; j<esPrimo; j++){
                         if (esPrimo%j ==0){
@@ -33,11 +30,9 @@ public class Ejercicio8 extends Applet implements ActionListener{
                         contador++;
                     }
                     esPrimo++;
-                    try{
-                        sleep(50);
-                    }catch(InterruptedException ie){}
+                    sleep(50);
                 }
-            }
+            }catch(InterruptedException e){}
         }
 
         public int getContador() {
@@ -78,9 +73,11 @@ public class Ejercicio8 extends Applet implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==b1){
-            hp.interrupt();
-            parado = true;
-            repaint();
+            if(hp!=null && hp.isAlive()){
+                hp.interrupt();
+                parado = true;
+                repaint();
+            }
         }
     }
     
