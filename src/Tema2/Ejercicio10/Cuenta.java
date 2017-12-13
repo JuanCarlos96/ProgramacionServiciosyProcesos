@@ -8,7 +8,7 @@ public class Cuenta {
         this.max = max;
     }
 
-    synchronized public void ingresar(int cantidad){
+    public synchronized void ingresar(int cantidad){
         System.out.println("Se va a ingresar: "+cantidad);
         if((this.getActual()+cantidad)>this.max){
             System.out.println("No se puede realizar la operación, el total es mayor que el máximo");
@@ -19,7 +19,7 @@ public class Cuenta {
         }
     }
     
-    synchronized public void retirar(int cantidad){
+    public synchronized void retirar(int cantidad){
         System.out.println("Se va a retirar: "+cantidad);
         if(cantidad>this.actual){
             System.out.println("No se puede realizar la operación, la cantidad es mayor que el saldo actual");
