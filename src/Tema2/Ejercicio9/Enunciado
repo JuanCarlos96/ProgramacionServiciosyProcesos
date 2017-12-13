@@ -1,0 +1,4 @@
+Modifica la clase Productor para que envíe las cadenas PING y PONG (de forma
+alternativa, una vez PING y otra vez PONG) a la cola y la clase Consumidor tome
+la cadena de la cola y la visualice. La salida tiene que mostrar lo siguiente:
+PING PONG PING PONG PING PONG PING PONG PING PONG PING PONG PING PONG PING PONG PING PONG PING PONG...
