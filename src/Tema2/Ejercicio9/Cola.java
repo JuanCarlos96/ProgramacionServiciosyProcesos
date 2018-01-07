@@ -18,7 +18,7 @@ public class Cola {
     public synchronized void put(String cadena_nueva) {
         while (disponible == true) {
             try {
-            wait();
+                wait();
             } catch (InterruptedException e) {}
         }
         cadena = cadena_nueva;

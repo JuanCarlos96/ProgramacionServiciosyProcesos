@@ -1,0 +1,14 @@
+Crear un productor de términos de la serie de Fibonacci y un consumidor de dichos términos.
+Para ello necesitaréis crear una clase Fibonacci que tendrá dos campos: uno para guardar el
+término calculado (a consumir) y otro para indicar que hay/no hay un término disponible para
+ser consumido. Dicha clase tendrá dos métodos synchronized (put para que el productor deje el
+término calculado y get para que el consumidor coja dicho término). Se deberá crear hilo de
+nombre produceFibo (el productor) al que se le pasará un objeto de la clase Fibonacci junto
+con un número identificador del hilo y el número de los n-primeros términos a calcular. Este
+hilo deberá ir calculando términos de la serie e ir poniéndolos en el objeto de la clase Fibonacci.
+También se deberá crear un hilo consumeFibo (el consumidor) al que se le pasará el mismo objeto
+de la clase Fibonacci que al productor, junto con un número identificador del hilo y el número
+de términos de la serie que deberá mostrar (consumir) por pantalla. Este hilo será el que deberá
+ir mostrando los términos que vaya generando el productor. Finalmente se deberá crear una clase
+de nombre usaFibo que pedirá por teclado el número de términos de la serie que se desean calcular.
+A continuación creará y lanzará un hilo productor y otro consumidor.

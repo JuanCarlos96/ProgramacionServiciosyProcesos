@@ -14,7 +14,6 @@ public class Productor extends Thread {
             }else{
                 cola.put("PONG");
             }
-            //System.out.println(i+"=>Productor : " + s + ", produce: " + i);
 
             try {
                 sleep(100);

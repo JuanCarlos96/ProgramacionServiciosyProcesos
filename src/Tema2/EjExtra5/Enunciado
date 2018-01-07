@@ -1,0 +1,12 @@
+Crear un productor de números primos y un consumidor de dichos números primos.
+Para ello necesitaréis crear una clase Primo que tendrá dos campos: uno para guardar
+el número primo generado (a consumir) y otro para indicar que hay/no hay un número
+primo disponible para ser consumido. Dicha clase tendrá dos métodos synchronized
+(put para que el productor deje su número primo y get para que el consumidor coja
+dicho número). Se deberá crear una clase de nombre producePrimo (el productor) a
+la que se le pasará un objeto de la clase Primo junto con un número identificador
+del hilo. En ese objeto irá depositando cada número primo que produzca. También se
+deberá crear una clase consumePrimo (el consumidor) a la que se le pasará el mismo
+objeto de la clase Primo que al productor, junto con un número identificador del hilo.
+Finalmente se deberá crear una clase de nombre usaPrimos que creará y lanzará un hilo
+productor y otro consumidor. Transcurrido un tiempo deberá interrumpir al consumidor y al producto.
