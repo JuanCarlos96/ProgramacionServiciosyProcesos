@@ -1,6 +1,5 @@
 package Tema2.EjExtra6;
 
-import Tema2.Ejercicio9.Consumidor;
 import java.util.Scanner;
 
 public class UsaFibo {
@@ -12,9 +11,16 @@ public class UsaFibo {
         n = teclado.nextInt();
         
         ProduceFibo productor = new ProduceFibo(fibo, 1, n);
-        ConsumeFibo consumidor = new ConsumeFibo(fibo, 1);
+        ConsumeFibo consumidor = new ConsumeFibo(fibo, 1, n);
         
         productor.start();
         consumidor.start();
+        
+        try {
+            consumidor.join();
+            productor.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 }

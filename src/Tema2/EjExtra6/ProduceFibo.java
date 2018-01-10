@@ -12,15 +12,12 @@ public class ProduceFibo extends Thread{
 
     @Override
     public void run() {
-        if(n>=1){
-            System.out.println("Productor "+this.id+" produce: "+num1);
-            this.fibonacci.put(num1);
-        }
         
-        if(n>=2){
-            System.out.println("Productor "+this.id+" produce: "+num2);
-            this.fibonacci.put(num2);
-        }
+        System.out.println("Productor "+this.id+" produce: "+num1);
+        this.fibonacci.put(num1);
+
+        System.out.println("Productor "+this.id+" produce: "+num2);
+        this.fibonacci.put(num2);
         
         for(int i=3; i<=n; i++){
             suma = num1 + num2;

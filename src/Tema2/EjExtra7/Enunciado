@@ -1,0 +1,23 @@
+Crear dos hilos. Uno de ellos se llamará actualizaLista y el otro se llamará
+analizaSalarios. Ambos compartirán un objeto de la clase PlantillaEmpresa. Dicha
+clase consta de los siguientes campos private: un  ArrayList de objetos de la
+clase Empleado (ésta clase tendrá tres campos: el id del empleado, un entero, el
+nombre completo del Empleado, un String, y su salario, un float), un float para
+almacenar la media de los salarios, otro más para almacenar el salario mínimo y
+otro más para almacenar el salario máximo. El acceso a los campos de la clase
+PlantillaEmpresa se llevará a cabo a través de métodos synchronized: habrá un método
+para mostrar los datos de los empleados (recorrer el arrayList), otro para agregar
+un nuevo empleado, otro para eliminarlo, otro para recalcular la media, el salario
+máximo y el salario mínimo. También deberá haber un método para acceder al valor
+de esa media, ese máximo y ese mínimo. El hilo actualizaLista se encargará de la
+inserción/eliminación y del listado de empleados del arrayList. Por su parte el
+hilo analizaSalarios se encargará de mantener actualizados los valores de la media,
+el máximo y el mínimo. Cada vez que el hilo actualizaLista añade o elimina un
+nuevo empleado, deberá notificarlo al otro hilo para que actualice y muestre dicha
+media, máximo y mínimo (durante ese tiempo el otro hilo no podrá acceder al arrayList).
+Cuando termine se lo notificará a actualizaLista para que pueda añadir/eliminar
+un nuevo empleado. El hilo actualizaLista termina cuando el usuario así se lo indique
+a través de un menú con las opciones (1. Mostrar lista, 2. Insertar nuevo empleado,
+3. Eliminar un empleado por su id, 4. Salir). El hilo analizaSalarios muere cuando
+el hilo actualizaLista muere. Habrá que crear una clase más con el método main
+desde el que se crearán los objetos hilo correspondientes y se lanzarán.
