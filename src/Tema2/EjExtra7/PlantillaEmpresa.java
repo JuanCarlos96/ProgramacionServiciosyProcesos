@@ -12,7 +12,6 @@ public class PlantillaEmpresa {
     
     //--------------------------MÉTODOS DEL HILO ACTUALIZA LISTA------------------------------
     public synchronized void mostrarDatos(){
-        operando = true;
         if(!this.empleados.isEmpty()){
             for(Empleado e:this.empleados){
                 System.out.println(e);
@@ -20,21 +19,32 @@ public class PlantillaEmpresa {
         }else{
             System.out.println("No hay ningún empleado en la plantilla");
         }
-        operando = false;
         notifyAll();
     }
     
     public synchronized void agregarEmpleado(Empleado e){
-        operando = true;
+        while(operando){
+            try{
+                wait();
+            } catch (InterruptedException ex) {
+                ex.printStackTrace();
+            }
+        }
         this.empleados.add(e);
         System.out.println("Nuevo empleado añadido");
-        operando = false;
+        operando = true;
         notifyAll();
     }
     
     public synchronized void eliminarEmpleado(int id){
         boolean encontrado = false;
-        operando = true;
+        while(operando){
+            try{
+                wait();
+            } catch (InterruptedException ex) {
+                ex.printStackTrace();
+            }
+        }
         for(Empleado e:this.empleados){
             if(e.getId()==id){
                 encontrado = true;
@@ -45,14 +55,14 @@ public class PlantillaEmpresa {
         if(!encontrado){
             System.out.println("No existe un empleado con ID: "+id);
         }
-        operando = false;
+        operando = true;
         notifyAll();
     }
     //----------------------------------------------------------------------------------------
     
     //--------------------------MÉTODOS DEL HILO ANALIZA SALARIOS-----------------------------
     public synchronized void calcularMedia(){
-        while(operando){
+        while(!operando){
             try{
                 wait();
             } catch (InterruptedException ex) {
@@ -64,10 +74,11 @@ public class PlantillaEmpresa {
             total+=e.getSalario();
         }
         this.media = total/this.empleados.size();
+        operando=false;
     }
     
     public synchronized void calcularMinimo(){
-        while(operando){
+        while(!operando){
             try{
                 wait();
             } catch (InterruptedException ex) {
@@ -80,10 +91,11 @@ public class PlantillaEmpresa {
                 min = e.getSalario();
             }
         }
+        operando=false;
     }
     
     public synchronized void calcularMaximo(){
-        while(operando){
+        while(!operando){
             try{
                 wait();
             } catch (InterruptedException ex) {
@@ -96,6 +108,7 @@ public class PlantillaEmpresa {
                 max = e.getSalario();
             }
         }
+        operando=false;
     }
 
     public synchronized float getMedia() {
