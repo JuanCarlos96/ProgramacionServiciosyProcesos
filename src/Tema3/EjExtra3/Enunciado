@@ -1,0 +1,5 @@
+Hacer un programa cliente que genere un vector de números aleatorios. La longitud del
+vector y el intervalo dentro del cual estarán los números aleatorios será proporcionado por
+teclado al cliente. El cliente deberá pasar al servidor la longitud del array y los elementos del
+array. El servidor deberá ordenar el array y devolverlo a cliente que será quien lo muestre
+por pantalla.

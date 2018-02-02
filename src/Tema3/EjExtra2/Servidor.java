@@ -1,4 +1,4 @@
-package Tema3.EjExtra1;
+package Tema3.EjExtra2;
 
 import java.io.*;
 import java.net.*;
@@ -14,12 +14,12 @@ public class Servidor {
             System.out.println("Cliente conectado");
             
             BufferedReader br = new BufferedReader(new InputStreamReader(cliente.getInputStream()));
-            int termino = nFibonacci(Integer.parseInt(br.readLine()));
-            System.out.println("Calculando término...");
+            boolean esPrimo = nPrimo(Integer.parseInt(br.readLine()));
+            System.out.println("Calculando...");
             
             PrintWriter pw = new PrintWriter(cliente.getOutputStream(),true);
-            pw.println(termino);
-            System.out.println("Enviando término al cliente...");
+            pw.println(esPrimo);
+            System.out.println("Enviando resultado al cliente...");
             
             pw.close();
             br.close();
@@ -30,15 +30,15 @@ public class Servidor {
         }
     }
     
-    private static int nFibonacci(int ntermino){
-        int n=1, n1=1, n2=1;
+    private static boolean nPrimo(int numero){
+        if(numero==2 || numero==1) return true;
         
-        for(int i=2; i<ntermino; i++){
-            n=n1+n2;
-            n1=n2;
-            n2=n;
+        for(int i=2; i<numero; i++){
+            if(numero%i==0){
+                return false;
+            }
         }
         
-        return n;
+        return true;
     }
 }
