@@ -1,4 +1,4 @@
-package Tema3.EjExtra3;
+package Tema3.EjExtra3_TCP;
 
 import java.net.Socket;
 import java.io.*;

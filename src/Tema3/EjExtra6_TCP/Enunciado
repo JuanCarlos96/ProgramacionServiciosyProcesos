@@ -1,0 +1,6 @@
+Hacer un programa cliente Java al que se le pasarán 4 números introducidos por teclado
+correspondientes a los 4 octetos de una dirección IP. El programa debe indicar si esa IP tiene
+un formato válido (o sea, si esos 4 números están entre 0 y 255). Si es así, deberá pasar los
+cuatro números a un programa servidor para que determine la clase de esa dirección IP
+(clase A, clase B o clase C). El resultado obtenido por el servidor se le pasará al cliente para
+que lo muestre por pantalla.

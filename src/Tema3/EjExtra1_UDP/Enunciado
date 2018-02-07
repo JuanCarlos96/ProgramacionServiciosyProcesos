@@ -1,0 +1,4 @@
+Hacer un programa cliente que pida por teclado el termino de Fibonacci a calcular (n). El
+programa cliente deberá pasar al servidor el valor de n. El servidor calculará el término de
+Fibonacci en cuestión y se lo mandará de vuelta al cliente que será quien lo muestre por
+pantalla.

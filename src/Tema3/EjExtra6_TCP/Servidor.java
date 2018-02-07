@@ -1,12 +1,11 @@
-package Tema3.EjExtra3;
+package Tema3.EjExtra6_TCP;
 
 import java.net.*;
 import java.io.*;
-import java.util.Arrays;
 
 public class Servidor {
     public static void main(String[] args) {
-        try {
+        try{
             ServerSocket servidor = new ServerSocket(49500);
             Socket cliente;
             
@@ -15,29 +14,32 @@ public class Servidor {
             System.out.println("Cliente conectado");
             
             BufferedReader br = new BufferedReader(new InputStreamReader(cliente.getInputStream()));
-            int size = Integer.parseInt(br.readLine());
-            System.out.println("Tamaño leído");
+            int[] ip = new int[4];
             
-            int[] vector = new int[size];
-            
-            for (int i = 0; i < size; i++) {
-                vector[i] = Integer.parseInt(br.readLine());
+            for(int i=0; i<4; i++){
+                ip[i] = Integer.parseInt(br.readLine());
             }
-            System.out.println("Vector recibido");
-            Arrays.sort(vector);
-            System.out.println("Vector ordenado");
+            
             PrintWriter pw = new PrintWriter(cliente.getOutputStream(), true);
             
-            for (int i = 0; i < size; i++) {
-                pw.println(vector[i]);
+            if(ip[0]<=127){
+                pw.println("La IP es de clase A");
+            }else if(ip[0]>=128 && ip[0]<=191){
+                pw.println("La IP es de clase B");
+            }else if(ip[0]>=192 && ip[0]<=223){
+                pw.println("La IP es de clase C");
+            }else{
+                pw.println("La IP es de otra clase");
             }
-            System.out.println("Vector enviado");
             
             pw.close();
             br.close();
             cliente.close();
             servidor.close();
-        } catch (Exception e) {
+        }catch(IOException ioe){
+            ioe.printStackTrace();
+        }catch(NumberFormatException nfe){
+            System.exit(0);
         }
     }
 }

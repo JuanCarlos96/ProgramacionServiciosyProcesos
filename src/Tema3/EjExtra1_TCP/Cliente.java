@@ -1,4 +1,4 @@
-package Tema3.EjExtra2;
+package Tema3.EjExtra1_TCP;
 
 import java.io.*;
 import java.net.*;
@@ -12,7 +12,7 @@ public class Cliente {
             int port = 49500;
             Socket servidor = new Socket(host, port);
             
-            System.out.print("Introduzca un número: ");
+            System.out.print("Introduzca que término de Fibonacci desea averiguar: ");
             int termino = Integer.parseInt(teclado.nextLine());
             
             PrintWriter pw = new PrintWriter(servidor.getOutputStream(),true);
@@ -20,13 +20,7 @@ public class Cliente {
             System.out.println("Enviando datos al servidor...");
             
             BufferedReader br = new BufferedReader(new InputStreamReader(servidor.getInputStream()));
-            boolean esPrimo = Boolean.valueOf(br.readLine());
-            
-            if(esPrimo){
-                System.out.println("El número introducido es primo");
-            }else{
-                System.out.println("El número introducido no es primo");
-            }
+            System.out.println("El término de Fibonacci es: "+br.readLine());
             
             br.close();
             pw.close();

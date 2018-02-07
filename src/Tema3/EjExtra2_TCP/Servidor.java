@@ -1,4 +1,4 @@
-package Tema3.EjExtra2;
+package Tema3.EjExtra2_TCP;
 
 import java.io.*;
 import java.net.*;
