@@ -1,0 +1,3 @@
+Hacer un programa cliente que pida por teclado un número. El programa cliente se lo pasará
+al servidor que deberá determinar si el número es primo. El resultado (si es primo o no) se lo
+deberá pasar al cliente que será quien lo muestre por pantalla.

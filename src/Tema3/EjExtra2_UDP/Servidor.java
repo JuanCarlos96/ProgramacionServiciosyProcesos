@@ -1,4 +1,4 @@
-package Tema3.EjExtra1_UDP;
+package Tema3.EjExtra2_UDP;
 
 import java.net.*;
 
@@ -19,8 +19,15 @@ public class Servidor {
             int puerto = paqRecibido.getPort();
             
             int num = Integer.parseInt(mensaje.trim());
-            String nFibo = Integer.toString(nFibonacci(num));
-            enviado = nFibo.getBytes();
+            boolean esPrimo = nPrimo(num);
+            String resultado;
+            
+            if(esPrimo)
+                resultado = "El número introducido es primo";
+            else
+                resultado = "El número introducido no es primo";
+            
+            enviado = resultado.getBytes();
             DatagramPacket paqEnviado = new DatagramPacket(enviado, enviado.length, clienteIP, puerto);
             servidor.send(paqEnviado);
             System.out.println("Resultado enviado");
@@ -31,15 +38,15 @@ public class Servidor {
         }
     }
     
-    private static int nFibonacci(int ntermino){
-        int n=1, n1=1, n2=1;
+    private static boolean nPrimo(int numero){
+        if(numero==2 || numero==1) return true;
         
-        for(int i=2; i<ntermino; i++){
-            n=n1+n2;
-            n1=n2;
-            n2=n;
+        for(int i=2; i<numero; i++){
+            if(numero%i==0){
+                return false;
+            }
         }
         
-        return n;
+        return true;
     }
 }
