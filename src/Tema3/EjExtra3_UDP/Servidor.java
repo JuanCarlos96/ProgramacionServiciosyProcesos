@@ -20,14 +20,16 @@ public class Servidor {
             String tamanio = new String(paqRecibido.getData());
             System.out.println("Tamaño recibido");
             
-            int size = Integer.parseInt(tamanio);
+            int size = Integer.parseInt(tamanio.trim());
             String[] vectorCadenas = new String[size];
             
             for(int i=0; i<size; i++){
                 servidor.receive(paqRecibido);
                 String valor = new String(paqRecibido.getData());
-                vectorCadenas[i] = valor;
+                vectorCadenas[i] = valor.trim();
             }
+            
+            System.out.println("Vector leído");
             
             int[] vectorEnteros = new int[size];
             for (int i=0; i<size; i++) {
@@ -36,12 +38,16 @@ public class Servidor {
             
             Arrays.sort(vectorEnteros);
             
+            System.out.println("Vector ordenado");
+            
             for(int i:vectorEnteros){
                 String num = Integer.toString(i);
                 enviado = num.getBytes();
                 DatagramPacket paqEnviado = new DatagramPacket(enviado, enviado.length, clienteIP, puerto);
                 servidor.send(paqEnviado);
             }
+            
+            System.out.println("Vector enviado");
             
             servidor.close();
         } catch (Exception e) {
