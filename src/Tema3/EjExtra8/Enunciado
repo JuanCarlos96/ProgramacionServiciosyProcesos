@@ -1,0 +1,10 @@
+Crear un programa cliente y otro servidor que se comunicarán mediante un socket TCP. El
+cliente deberá pedir por teclado los datos necesarios para crear un objeto de la clase
+Empleado. Dicha clase deberá tener los siguientes campos: Nombre (String), Apellidos
+(String), Antiguedad (int), Salario (float) e IdDep (String). Una vez creado el objeto se lo
+deberá pasar al servidor. Cuando el servidor lo reciba, deberá modificar el salario en función
+de la antigüedad (si tiene entre 5 y 10 años de antigüedad deberá incrementar el sueldo en un
+5%, si tiene entre 10 y 15 años de antigüedad deberá incrementar el sueldo en un 10% y para
+aquellos que tengan más de 15 años de antigüedad deberá incrementar el sueldo en un 15%).
+Una vez actualizado el sueldo deberá devolver el objeto Empleado al cliente y éste deberá
+mostrar todos los datos del Empleado recibido desde el servidor.
