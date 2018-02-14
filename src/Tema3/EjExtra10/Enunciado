@@ -1,0 +1,6 @@
+Hacer una variante del ejercicio anterior en la que el servidor calcule la media de los salarios
+para cada departamento. Los resultados los almacenará en un arraylist de objetos de la clase
+Departamento. Dicha clase deberá tener dos campos: IdDep (String con el identificador del
+departamento) y Media (float con la media de los salarios del departamento). Dicho arraylist
+se lo pasará el servidor al cliente que será quien muestre los resultados (la media de los
+salarios de cada departamento junto con el identificador del departamento).
