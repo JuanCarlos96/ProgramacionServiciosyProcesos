@@ -1,4 +1,4 @@
-package Tema3.EjExtra8;
+package Tema3.EjExtra8_TCP;
 
 import java.util.Scanner;
 import java.io.*;

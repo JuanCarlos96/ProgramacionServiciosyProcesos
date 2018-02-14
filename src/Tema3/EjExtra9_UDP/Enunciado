@@ -1,0 +1,6 @@
+Repetir el ejercicio anterior pero haciendo que el cliente pase al servidor un arraylist de
+Empleados con los empleados de una empresa. El cliente deberá pedir por teclado el número
+de empleados que forman la plantilla así como los datos de dichos empleados. Una vez que
+tenga todos esos datos deberá enviar el arraylist al servidor. El servidor deberá calcular la
+media de los salarios de los empleados y devolver al cliente el resultado que deberá
+mostrarlo por pantalla.

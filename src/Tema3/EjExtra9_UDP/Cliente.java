@@ -1,14 +1,17 @@
-package Tema3.EjExtra10;
+package Tema3.EjExtra9_UDP;
 
 import java.util.Scanner;
 import java.io.*;
-import java.net.Socket;
+import java.net.*;
 import java.util.ArrayList;
 
 public class Cliente {
     public static void main(String[] args) {
         try {
-            Socket servidor = new Socket("localhost", 49500);
+            DatagramSocket cliente = new DatagramSocket();
+            byte[] enviado = new byte[1024];
+            byte[] recibido = new byte[1024];
+            InetAddress servidorIP = InetAddress.getLocalHost();
             Scanner teclado = new Scanner(System.in);
             ArrayList<Empleado> empleados = new ArrayList();
             
@@ -32,21 +35,21 @@ public class Cliente {
                 empleados.add(empleado);
             }
             
-            ObjectOutputStream oos = new ObjectOutputStream(servidor.getOutputStream());
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            ObjectOutputStream oos = new ObjectOutputStream(baos);
             oos.writeObject(empleados);
+            enviado = baos.toByteArray();
+            DatagramPacket paqEnviado = new DatagramPacket(enviado, enviado.length, servidorIP, 49500);
+            cliente.send(paqEnviado);
+            System.out.println("Empleados enviados");
             
-            ObjectInputStream ois = new ObjectInputStream(servidor.getInputStream());
-            ArrayList departamentos = (ArrayList) ois.readObject();
+            DatagramPacket paqRecibido = new DatagramPacket(recibido, recibido.length);
+            cliente.receive(paqRecibido);
+            String resultado = new String(paqRecibido.getData());
+            System.out.println("La media de los salarios es: "+resultado.trim());
             
-            for(Object obj:departamentos){
-                Departamento d = (Departamento) obj;
-                System.out.println("\nDepartamento: "+d.getIddep());
-                System.out.println("Media: "+d.getMedia());
-            }
-            
-            ois.close();
             oos.close();
-            servidor.close();
+            cliente.close();
         } catch (Exception e) {
             e.printStackTrace();
         }

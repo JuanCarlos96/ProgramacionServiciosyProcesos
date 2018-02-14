@@ -1,4 +1,4 @@
-package Tema3.EjExtra9;
+package Tema3.EjExtra10_TCP;
 
 import java.util.Scanner;
 import java.io.*;
@@ -26,6 +26,7 @@ public class Cliente {
                 float salario = Float.parseFloat(teclado.nextLine());
                 System.out.print("Introduce antigüedad del empleado: ");
                 int antiguedad = Integer.parseInt(teclado.nextLine());
+                System.out.println("");
 
                 Empleado empleado = new Empleado(nombre, apellidos, iddep, salario, antiguedad);
                 empleados.add(empleado);
@@ -34,10 +35,16 @@ public class Cliente {
             ObjectOutputStream oos = new ObjectOutputStream(servidor.getOutputStream());
             oos.writeObject(empleados);
             
-            BufferedReader br = new BufferedReader(new InputStreamReader(servidor.getInputStream()));
-            System.out.println("La media de los salarios es: "+br.readLine());
+            ObjectInputStream ois = new ObjectInputStream(servidor.getInputStream());
+            ArrayList departamentos = (ArrayList) ois.readObject();
             
-            br.close();
+            for(Object obj:departamentos){
+                Departamento d = (Departamento) obj;
+                System.out.println("\nDepartamento: "+d.getIddep());
+                System.out.println("Media: "+d.getMedia());
+            }
+            
+            ois.close();
             oos.close();
             servidor.close();
         } catch (Exception e) {
