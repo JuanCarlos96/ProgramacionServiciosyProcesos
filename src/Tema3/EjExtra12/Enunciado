@@ -1,0 +1,5 @@
+Hacer un programa servidor que, mediante hilos, pueda atender a varios clientes. El
+programa cliente debe pedir por teclado el termino de Fibonacci a calcular (n) y, a
+continuación, pasar dicho valor n al servidor. El servidor (mediante un hilo) calculará el
+término de Fibonacci en cuestión y se lo mandará de vuelta al cliente que será quien lo
+muestre por pantalla.
