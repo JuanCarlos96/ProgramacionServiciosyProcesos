@@ -1,22 +1,36 @@
-package Tema3.EjExtra5_TCP;
+package Tema3.EjExtra16;
 
-import java.net.*;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.ObjectOutputStream;
+import java.io.PrintWriter;
+import java.net.ServerSocket;
+import java.net.Socket;
 import java.util.Random;
 
-public class Servidor {
-    public static void main(String[] args) {
+public class Hilo extends Thread{
+    private Socket c;
+    private Random rnd = new Random();
+    private ObjectOutputStream oos;
+    private BufferedReader br;
+
+    public Hilo(Socket c) {
+        this.c = c;
+        
+        try {
+            oos = new ObjectOutputStream(c.getOutputStream());
+            br = new BufferedReader(new InputStreamReader(c.getInputStream()));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void run() {
         try {
             Random rnd = new Random();
-            ServerSocket servidor = new ServerSocket(49500);
-            Socket cliente;
             int suma10=0, seis=0, totalseis=0, sumatotal=0, dado, dado2;
             
-            System.out.println("Esperando cliente...");
-            cliente = servidor.accept();
-            System.out.println("Cliente conectado");
-            
-            BufferedReader br = new BufferedReader(new InputStreamReader(cliente.getInputStream()));
             int tiradas = Integer.parseInt(br.readLine());
             System.out.println("Tiradas leídas");
             
@@ -30,7 +44,7 @@ public class Servidor {
                 
                 if(dado+dado2==10) suma10++;
                 
-                if(dado==6 && dado2==6){
+                if(dado==6 & dado2==6){
                     seis++;
                     if(seis>totalseis){
                         totalseis=seis;
@@ -40,17 +54,13 @@ public class Servidor {
                 }
             }
             
-            PrintWriter pw = new PrintWriter(cliente.getOutputStream(), true);
-            pw.println(sumatotal);
-            pw.println(suma10);
-            pw.println(totalseis);
+            oos.writeObject(new Resultado(suma10, totalseis, sumatotal));
             
-            pw.close();
+            oos.close();
             br.close();
-            cliente.close();
-            servidor.close();
+            c.close();
         } catch (Exception e) {
-            System.out.println("Error");
+            e.printStackTrace();
         }
     }
 }

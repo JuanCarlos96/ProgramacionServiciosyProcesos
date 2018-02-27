@@ -1,0 +1,7 @@
+Rehacer el ejercicio 6 de tal forma que el programa servidor pueda atender a varios clientes
+a la vez, mediante la creación de hilos. En el hilo es dónde se deberá determinar de que tipo
+es la dirección IP que le pasa el cliente. La dirección IP que el cliente pasa al servidor
+consistirá en un objeto de la clase direccionIP, que tendrá 4 campos de nombre: octeto1,
+octeto2, octeto3 y octeto4. El resultado del hilo servidor será pasado al cliente como un
+objeto de la clase TipoDireccionIP, que tendrá dos campos: un String con la dirección IP y
+un char con el tipo de dirección (A, B o C).

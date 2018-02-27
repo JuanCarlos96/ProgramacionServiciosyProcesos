@@ -1,0 +1,10 @@
+Crear un programa servidor que, mediante hilos, simule un número indeterminado de
+lanzamientos de dos dados. El número de tiradas a realizar se lo deberá pasar el cliente. Por
+ello, dicho cliente lo primero que deberá hacer será solicitar por teclado el número de tiradas
+a efectuar. En el hilo del servidor se deberá generar las tiradas de los dados, calcular cuantas
+veces han sumado entre los dos dados 10, la suma total de todos los lanzamientos y el
+número de veces consecutivas que ha salido el doble seis. Esos tres resultados deberá
+pasarlos al programa cliente en forma de objeto de la clase Resultado (dicha clase contendrá
+tres campos que albergarán los resultados solicitados). El programa cliente será quien los
+muestre por pantalla. Probar a ejecutar varios clientes para que así el servidor tenga que
+crear varios hilos.

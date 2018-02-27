@@ -1,0 +1,12 @@
+Hacer un programa servidor que, mediante hilos, simule un juego. El juego consiste en
+alcanzar una puntuación determinada en un número máximo de tiradas de un dado. El
+programa cliente deberá pedir por teclado la puntuación que debe alcanzarse en el juego y el
+número de tiradas del dado que se puede realizar como máximo. Ambos valores se los
+pasará el cliente al servidor como un objeto de la clase Jugador (dicha clase contendrá dos
+campos: uno con la puntuación a alcanzar y otro con las tiradas disponibles). El servidor
+deberá simular los lanzamientos del dado por parte del jugador hasta que o bien haya
+alcanzado la puntuación exigida o bien haya agotado todas las tiradas disponibles.
+Finalmente el resultado obtenido por dicho jugador se lo enviará el servidor al cliente en
+forma de un objeto de la clase Resultado (dicha clase tendrá dos campos: uno con la
+puntuación que finalmente alcanzó el jugador y otro con las tiradas que tuvo que realizar
+para alcanzar tal puntuación).

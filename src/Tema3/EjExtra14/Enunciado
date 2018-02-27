@@ -1,0 +1,5 @@
+Hacer un programa servidor que, mediante hilos, pueda atender a varios clientes. El
+programa cliente debe generar un vector de números aleatorios. La longitud del vector y el
+intervalo dentro del cual estarán los números aleatorios será proporcionado por teclado al
+cliente. El cliente deberá pasar al servidor el array que ha generado. El servidor creará un
+hilo para ordenar el array y devolverlo a cliente que será quien lo muestre por pantalla.

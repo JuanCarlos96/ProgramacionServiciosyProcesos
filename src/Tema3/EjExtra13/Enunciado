@@ -1,0 +1,5 @@
+Hacer un programa servidor que, mediante hilos, pueda atender a varios clientes. El
+programa cliente debe pedir por teclado un número y pasárselo al servidor. El servidor
+creará un hilo para atender a cada cliente y en él deberá determinarse si el número que le ha
+pasado el cliente es primo. El resultado (si es primo o no) se lo deberá pasar el hilo del
+servidor al cliente que será quien lo muestre por pantalla.

@@ -1,7 +1,8 @@
-package Tema3.EjExtra12;
+package Tema3.EjExtra13;
 
-import java.net.Socket;
 import java.io.*;
+import java.io.PrintWriter;
+import java.net.Socket;
 
 public class Hilo extends Thread{
     private Socket c;
@@ -22,12 +23,12 @@ public class Hilo extends Thread{
     @Override
     public void run() {
         try{
-            int termino = nFibonacci(Integer.parseInt(br.readLine()));
-            System.out.println("Calculando término...");
-
-            pw.println(termino);
-            System.out.println("Enviando término al cliente...");
-
+            boolean esPrimo = nPrimo(Integer.parseInt(br.readLine()));
+            System.out.println("Calculando...");
+            
+            pw.println(esPrimo);
+            System.out.println("Enviando resultado al cliente...");
+            
             pw.close();
             br.close();
             c.close();
@@ -36,15 +37,15 @@ public class Hilo extends Thread{
         }
     }
     
-    private static int nFibonacci(int ntermino){
-        int n=1, n1=1, n2=1;
+    private static boolean nPrimo(int numero){
+        if(numero==2 || numero==1) return true;
         
-        for(int i=2; i<ntermino; i++){
-            n=n1+n2;
-            n1=n2;
-            n2=n;
+        for(int i=2; i<numero; i++){
+            if(numero%i==0){
+                return false;
+            }
         }
         
-        return n;
+        return true;
     }
 }

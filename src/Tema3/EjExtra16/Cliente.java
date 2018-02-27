@@ -1,7 +1,8 @@
-package Tema3.EjExtra5_TCP;
+package Tema3.EjExtra16;
 
-import java.net.*;
 import java.io.*;
+import java.io.PrintWriter;
+import java.net.Socket;
 import java.util.Scanner;
 
 public class Cliente {
@@ -16,12 +17,14 @@ public class Cliente {
             int tiradas = Integer.parseInt(teclado.nextLine());
             pw.println(tiradas);
             
-            BufferedReader br = new BufferedReader(new InputStreamReader(servidor.getInputStream()));
-            System.out.println("La suma total es: "+br.readLine());
-            System.out.println("Veces que ha salido 10: "+br.readLine());
-            System.out.println("Veces consecutivas que ha salido doble 6: "+br.readLine());
+            ObjectInputStream ois = new ObjectInputStream(servidor.getInputStream());
+            Resultado resultado = (Resultado) ois.readObject();
             
-            br.close();
+            System.out.println("La suma total es: "+resultado.getSumatotal());
+            System.out.println("Veces que ha salido 10: "+resultado.getTotaldiez());
+            System.out.println("Veces consecutivas que ha salido doble 6: "+resultado.getDobleseis());
+            
+            ois.close();
             pw.close();
             servidor.close();
         } catch (Exception e) {
